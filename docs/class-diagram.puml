@@ -1,0 +1,84 @@
+@startuml
+!pragma layout smetana
+title Assignment 3 - Bridge Pattern - Drawing
+skinparam classAttributeIconSize 0
+skinparam dpi 150
+
+class Main <<client>> {
+  -CIRCLE_ID: String
+  -SQUARE_ID: String
+  -CIRCLE_RADIUS: int
+  -SQUARE_SIDE: int
+  -passedChecks: int
+  -totalChecks: int
+  +main(String[]): void
+  -checkCombination(String, Shape, Renderer, String): void
+  -checkRuntimeSwitch(): void
+  -printCheck(String, boolean, String): void
+}
+
+package shapes <<Abstraction side>> {
+  abstract class Shape {
+    -id: String
+    -renderer: Renderer
+    #Shape(String, Renderer)
+    +getId(): String
+    +setImplementation(Renderer): void
+    #getRenderer(): Renderer
+    +{abstract} execute(): String
+  }
+
+  class Circle {
+    -radius: int
+    +Circle(String, int, Renderer)
+    +getRadius(): int
+    +execute(): String
+  }
+
+  class Square {
+    -side: int
+    +Square(String, int, Renderer)
+    +execute(): String
+  }
+}
+
+package renderers <<Implementor side>> {
+  interface Renderer {
+    +renderCircle(int): String
+    +renderSquare(int): String
+  }
+
+  class VectorRenderer {
+    +renderCircle(int): String
+    +renderSquare(int): String
+  }
+
+  class RasterRenderer {
+    +renderCircle(int): String
+    +renderSquare(int): String
+  }
+
+  class AsciiRenderer {
+    +renderCircle(int): String
+    +renderSquare(int): String
+  }
+}
+
+Shape <|-- Circle
+Shape <|-- Square
+Shape o-right-> "1" Renderer : -renderer\n(bridge)
+Renderer <|.. VectorRenderer
+Renderer <|.. RasterRenderer
+Renderer <|.. AsciiRenderer
+
+Main ..> Shape : uses
+Main ..> Renderer : uses
+Main ..> Circle : creates
+Main ..> Square : creates
+Main ..> VectorRenderer : creates
+Main ..> RasterRenderer : creates
+Main ..> AsciiRenderer : creates
+
+note bottom of Circle : execute() returns\ngetRenderer().renderCircle(radius)
+note bottom of Square : execute() returns\ngetRenderer().renderSquare(side)
+@enduml

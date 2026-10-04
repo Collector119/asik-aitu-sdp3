@@ -1,0 +1,9 @@
+T1 PASS | Circle + VectorRenderer | result=VECTOR path: circle radius=2
+T2 PASS | Circle + RasterRenderer | result=RASTER pixels: circle radius=2
+T3 PASS | Square + VectorRenderer | result=VECTOR path: square side=3
+T4 PASS | Square + RasterRenderer | result=RASTER pixels: square side=3
+T5 PASS | Circle: VectorRenderer -> RasterRenderer | sameObject=true | stateUnchanged=true
+   before=VECTOR path: circle radius=2 | after=RASTER pixels: circle radius=2
+T6 PASS | Circle + AsciiRenderer | result=ASCII text: (o) circle radius=2
+T7 PASS | Square + AsciiRenderer | result=ASCII text: [#] square side=3
+SUMMARY: 7/7 PASS
