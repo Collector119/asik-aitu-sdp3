@@ -2,7 +2,7 @@
 
 **Student:** Anarov Daniyal · **Group:** SE-2530 · **Course:** ShP-2216 Software Design Patterns · **Topic:** A — Drawing
 
-**Repository:** https://github.com/Collector119/asik-aitu-sdp3 · **Base commit:** `e67f2e5` · **Extension commit:** `4eb40fd` · **Submitted commit:** `SUBMITTED_COMMIT`
+**Repository:** https://github.com/Collector119/asik-aitu-sdp3 · **Base commit:** `e67f2e5` · **Extension commit:** `4eb40fd` · **Submitted commit:** `586eb27` (the only later commit adds this hash to the report)
 
 ## 1. Two dimensions and why Bridge fits
 
