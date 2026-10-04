@@ -1,3 +1,4 @@
+import renderers.AsciiRenderer;
 import renderers.RasterRenderer;
 import renderers.Renderer;
 import renderers.VectorRenderer;
@@ -22,6 +23,7 @@ public class Main {
 
         Renderer vector = new VectorRenderer();
         Renderer raster = new RasterRenderer();
+        Renderer ascii = new AsciiRenderer();
 
         checkCombination("T1", new Circle(CIRCLE_ID, CIRCLE_RADIUS, vector), vector,
                 "VECTOR path: circle radius=2");
@@ -32,6 +34,10 @@ public class Main {
         checkCombination("T4", new Square(SQUARE_ID, SQUARE_SIDE, raster), raster,
                 "RASTER pixels: square side=3");
         checkRuntimeSwitch();
+        checkCombination("T6", new Circle(CIRCLE_ID, CIRCLE_RADIUS, ascii), ascii,
+                "ASCII text: (o) circle radius=2");
+        checkCombination("T7", new Square(SQUARE_ID, SQUARE_SIDE, ascii), ascii,
+                "ASCII text: [#] square side=3");
 
         System.out.println("SUMMARY: " + passedChecks + "/" + totalChecks + " PASS");
     }

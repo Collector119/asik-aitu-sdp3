@@ -5,3 +5,4 @@ src/shapes/Square.java
 src/renderers/Renderer.java
 src/renderers/VectorRenderer.java
 src/renderers/RasterRenderer.java
+src/renderers/AsciiRenderer.java
